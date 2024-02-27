@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://localhost/unidad6/servidorSoap/servidor.php" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Daw2.ProyectoSoap.Operaciones" targetNamespace="http://localhost/unidad6/servidorSoap/servidor.php">
+  <types>
+    <xsd:schema targetNamespace="http://localhost/unidad6/servidorSoap/servidor.php">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+    </xsd:schema>
+  </types>
+  <portType name="Daw2.ProyectoSoap.OperacionesPort"/>
+  <binding name="Daw2.ProyectoSoap.OperacionesBinding" type="tns:Daw2.ProyectoSoap.OperacionesPort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+  </binding>
+  <service name="Daw2.ProyectoSoap.OperacionesService">
+    <port name="Daw2.ProyectoSoap.OperacionesPort" binding="tns:Daw2.ProyectoSoap.OperacionesBinding">
+      <soap:address location="http://localhost/unidad6/servidorSoap/servidor.php"/>
+    </port>
+  </service>
+</definitions>

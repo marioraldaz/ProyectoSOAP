@@ -1,15 +1,32 @@
 <?php
 
-require_once 'vendor/autoload.php';
+namespace Daw2\ProyectoSoap;
 
-// Se crea una instancia de Wsdl2PhpGenerator\Config y se le pasan las opciones.
-$config = new Wsdl2PhpGenerator\Config(array(
-    'inputFile' => 'servicio.wsdl',  // Se especifica el archivo WSDL de entrada.
-    'outputDir' => '../src/Clases1',  // Se especifica el directorio de salida donde se guardarán las clases generadas.
-));
+// Incluye el autoload de Composer para cargar las clases necesarias
+require_once '../vendor/autoload.php';
 
-// Se crea una instancia del generador de wsdl2phpgenerator.
-$generator = new \Wsdl2PhpGenerator\Generator();
+use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Process\Process;
 
-// Se genera el código PHP basado en la configuración especificada.
-$generator->generate($config);
+// Ruta al archivo WSDL
+$wsdlFile = 'servidorSoap/servicio.wsdl';
+
+// Directorio de salida para las clases generadas
+$outputDirectory = 'src/Clases1';
+
+// Comando para generar las clases PHP
+$command = "wsdl2php -o $outputDirectory $wsdlFile";
+
+// Ejecutar el comando
+$process = new Process([$command]);
+$process->run();
+
+// Verificar si ocurrió algún error al ejecutar el comando
+if (!$process->isSuccessful()) {
+    throw new ProcessFailedException($process);
+}
+
+// Mostrar la salida del proceso
+echo $process->getOutput();
+
+?>

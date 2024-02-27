@@ -3,7 +3,10 @@
     "type": "project",
     "require": {
         "zendframework/zend-soap": "^2.8",
-        "wsdl2phpgenerator/wsdl2phpgenerator": "^3.4"
+        "wsdl2phpgenerator/wsdl2phpgenerator": "^3.4",
+        "symfony/process": "^5.4",
+        "php2wsdl/php2wsdl": "^0.7.0"
+
     },
     "license": "gpl",
     "autoload": {

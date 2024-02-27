@@ -1,8 +1,14 @@
 <?php
 
-require_once 'servicio.wsdl';
-require_once '../src/Operaciones.php';
+namespace Daw2\ProyectoSoap;
 
-$server = new SoapServer('servicio.wsdl');
-$server->setClass('Operaciones');
+// Incluimos el archivo de autoload generado por Composer
+require_once '../vendor/autoload.php';
+
+// Creamos una instancia de SoapServer con el archivo WSDL
+$server = new \SoapServer('servidorSoap/servicio.wsdl');
+
+// Manejamos las solicitudes SOAP
 $server->handle();
+
+?>
