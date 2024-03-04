@@ -1,11 +1,17 @@
 <?php
 
-require_once 'servicio.wsdl';
+require_once '../vendor/autoload.php';
 
-$client = new SoapClient('servicio.wsdl');
+try{
+    $client = new SoapClient('http://localhost/mio/ProyectoSOAP/servidorSoap/servicioW.php?wsdl');
+    $resultado = $client->getPVP(1); // Ejemplo: llamar al método getPVP con el código de producto 123
 
-$result1 = $client->__soapCall('getPVP', array($parametro1));
-$result2 = $client->__soapCall('getStock', array($parametro1, $parametro2));
+}catch(soapFault $e){
+    var_dump($e);
+    var_dump($client->__getLastRequestHeaders());
+}
+
+
 // Llama a las otras funciones y maneja los resultados
 
 ?>

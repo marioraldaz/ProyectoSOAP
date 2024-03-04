@@ -9,7 +9,7 @@ require_once '../vendor/autoload.php';
 use Daw2\ProyectoSoap\Operaciones;
 
 // Creamos una instancia de SoapServer
-$server = new \SoapServer(null, array('uri' => 'http://localhost/unidad6/servidorSoap/servidor.php'));
+$server = new \SoapServer(NULL, array('uri' => 'http://localhost/mio/proyectoSoap/servidorSoap'));
 
 // Asociamos la clase Operaciones al servidor SOAP
 $server->setClass(Operaciones::class);

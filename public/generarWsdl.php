@@ -11,7 +11,7 @@ use PHP2WSDL\PHPClass2WSDL;
 $class = "Daw2\ProyectoSoap\Operaciones";
 
 // Especificamos el URI en el que se ofrecerá el servicio
-$uri = 'http://localhost/unidad6/servidorSoap/servidor.php';
+$uri = 'http://localhost/mio/ProyectoSoap/servicio.php';
 
 // Creamos una instancia de PHPClass2WSDL y generamos el WSDL
 $wsdlGenerator = new PHPClass2WSDL($class, $uri);
